@@ -25,6 +25,7 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--tg-bg);
             color: var(--tg-text);
+            touch-action: manipulation;
         }
 
         header {
@@ -53,6 +54,7 @@
             background: var(--tg-secondary-bg);
             color: var(--tg-text);
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
         nav button.active {
@@ -92,7 +94,7 @@
         }
 
         td {
-            padding: 12px 4px;
+            padding: 10px 4px;
             border-bottom: 1px solid var(--tg-secondary-bg);
             text-align: center;
         }
@@ -107,7 +109,10 @@
             background: var(--tg-secondary-bg);
             color: var(--tg-text);
             text-align: center;
-            font-size: 1rem;
+            font-size: 16px;
+            outline: none;
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         .results-footer {
@@ -128,11 +133,11 @@
 
         .final-price-box {
             text-align: center;
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
         .final-price {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: bold;
             color: var(--tg-link);
         }
@@ -146,6 +151,7 @@
             color: var(--tg-button-text);
             font-weight: bold;
             font-size: 1rem;
+            -webkit-tap-highlight-color: transparent;
         }
     </style>
 </head>
@@ -171,58 +177,70 @@
                 </tr>
             </thead>
             <tbody id="serviceTable">
-                <tr data-name="Приемка">
+                <tr data-name="Приемка, сорт., распред.">
                     <td class="service-name">Приемка, сорт., распред.</td>
                     <td class="price">10.00</td>
-                    <td><input type="number" class="item-count" value="" placeholder="0" oninput="updateTotal()"></td>
-                    <td class="lineTotal">0</td>
+                    <td><input type="number" inputmode="decimal" class="item-count" value="" placeholder="0" oninput="updateTotal()"></td>
+                    <td class="lineTotal">0.00</td>
                 </tr>
-                <tr data-name="Брак">
+                <tr data-name="Маркировка ШК (двойная)">
+                    <td class="service-name">Маркировка ШК (двойная)</td>
+                    <td class="price">8.00</td>
+                    <td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td>
+                    <td class="lineTotal">0.00</td>
+                </tr>
+                <tr data-name="Маркировка ЧЗ (двойная)">
+                    <td class="service-name">Маркировка ЧЗ (двойная)</td>
+                    <td class="price">8.00</td>
+                    <td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td>
+                    <td class="lineTotal">0.00</td>
+                </tr>
+                <tr data-name="Проверка на брак">
                     <td class="service-name">Проверка на брак</td>
                     <td class="price">15.00</td>
-                    <td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td>
-                    <td class="lineTotal">0</td>
+                    <td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td>
+                    <td class="lineTotal">0.00</td>
                 </tr>
-                <tr data-name="Бирки">
+                <tr data-name="Прикрепление бирок">
                     <td class="service-name">Прикрепление бирок</td>
                     <td class="price">10.00</td>
-                    <td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td>
-                    <td class="lineTotal">0</td>
+                    <td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td>
+                    <td class="lineTotal">0.00</td>
                 </tr>
                 <tr data-name="Короб">
                     <td class="service-name">Короб</td>
                     <td class="price">135.00</td>
-                    <td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td>
-                    <td class="lineTotal">0</td>
+                    <td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td>
+                    <td class="lineTotal">0.00</td>
                 </tr>
-                <tr data-name="Поставка">
+                <tr data-name="Создание поставки">
                     <td class="service-name">Создание поставки</td>
                     <td class="price">500.00</td>
-                    <td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td>
-                    <td class="lineTotal">0</td>
+                    <td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td>
+                    <td class="lineTotal">0.00</td>
                 </tr>
-                <tr data-name="Коледино"><td class="service-name">Коледино</td><td class="price">350.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Электросталь"><td class="service-name">Электросталь</td><td class="price">350.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Тула"><td class="service-name">Тула</td><td class="price">450.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Рязань"><td class="service-name">Рязань</td><td class="price">500.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Котовск"><td class="service-name">Котовск</td><td class="price">650.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Казань"><td class="service-name">Казань</td><td class="price">750.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Краснодар"><td class="service-name">Краснодар</td><td class="price">750.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Сарапул"><td class="service-name">Сарапул</td><td class="price">850.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Новосемейкино"><td class="service-name">Новосемейкино</td><td class="price">850.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Невинномысск"><td class="service-name">Невинномысск</td><td class="price">850.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
-                <tr data-name="Екатеринбург"><td class="service-name">Екатеринбург</td><td class="price">1000.00</td><td><input type="number" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0</td></tr>
+                <tr data-name="Коледино"><td class="service-name">Коледино</td><td class="price">350.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Электросталь"><td class="service-name">Электросталь</td><td class="price">350.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Тула"><td class="service-name">Тула</td><td class="price">450.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Рязань"><td class="service-name">Рязань</td><td class="price">500.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Котовск"><td class="service-name">Котовск</td><td class="price">650.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Казань"><td class="service-name">Казань</td><td class="price">750.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Краснодар"><td class="service-name">Краснодар</td><td class="price">750.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Сарапул"><td class="service-name">Сарапул</td><td class="price">850.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Новосемейкино"><td class="service-name">Новосемейкино</td><td class="price">850.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Невинномысск"><td class="service-name">Невинномысск</td><td class="price">850.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
+                <tr data-name="Екатеринбург"><td class="service-name">Екатеринбург</td><td class="price">1000.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
             </tbody>
         </table>
     </div>
 
     <div class="results-footer">
         <div class="res-row">
-            <span>Скидка (%): <input type="number" id="discount" value="" placeholder="0" oninput="updateTotal()" style="width: 50px;"></span>
+            <span>Скидка (%): <input type="number" inputmode="decimal" id="discount" value="" placeholder="0" oninput="updateTotal()" style="width: 50px;"></span>
             <span>За 1 ед: <b id="perItem">0.00</b> ₽</span>
         </div>
         <div class="final-price-box">
-            <div style="font-size: 0.8rem; text-transform: uppercase; color: #666; letter-spacing: 1px;">Итого к оплате</div>
+            <div style="font-size: 0.8rem; text-transform: uppercase; color: #666;">Итого к оплате</div>
             <div class="final-price" id="finalTotal">0.00 ₽</div>
         </div>
         <div style="display: flex; gap: 8px;">
@@ -297,12 +315,36 @@
     }
 
     function sendData() {
-        const result = {
-            total: document.getElementById('finalTotal').innerText,
-            perItem: document.getElementById('perItem').innerText,
-            user: "@smartfffull"
-        };
-        tg.sendData(JSON.stringify(result));
+        const rows = document.querySelectorAll('#serviceTable tr');
+        let message = "📦 *Новый расчет FFMSC Smart*\n\n";
+        let hasData = false;
+
+        rows.forEach(row => {
+            const name = row.getAttribute('data-name');
+            const qty = parseInt(row.querySelector('input').value) || 0;
+            const lineTotal = row.querySelector('.lineTotal').innerText;
+            
+            if (qty > 0) {
+                message += `• ${name}: ${qty} шт. — ${lineTotal} ₽\n`;
+                hasData = true;
+            }
+        });
+
+        const discount = document.getElementById('discount').value;
+        if (discount > 0) {
+            message += `\n🏷 Скидка: ${discount}%`;
+        }
+
+        message += `\n\n💰 *ИТОГО: ${document.getElementById('finalTotal').innerText}*`;
+        message += `\n📦 Цена за 1 ед: ${document.getElementById('perItem').innerText} ₽`;
+        message += `\n\n👤 Менеджер: @smartfffull`;
+
+        if (!hasData) {
+            tg.showAlert("Пожалуйста, введите количество хотя бы для одной услуги.");
+            return;
+        }
+
+        tg.sendData(message);
     }
 </script>
 </body>
