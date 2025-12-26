@@ -346,6 +346,16 @@
 
         tg.sendData(message);
     }
+// Код для автоматического переключения вкладок
+  window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const page = urlParams.get('page');
+    if (page) {
+      if (page === 'calc') showSection('calc', document.querySelector('nav button:nth-child(1)'));
+      if (page === 'address') showSection('address', document.querySelector('nav button:nth-child(2)'));
+      if (page === 'contacts') showSection('contacts', document.querySelector('nav button:nth-child(3)'));
+    }
+  });
 </script>
 </body>
 </html>
