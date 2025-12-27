@@ -116,12 +116,15 @@
         }
 
         .results-footer {
-            background: var(--tg-secondary-bg);
-            padding: 15px;
-            flex-shrink: 0;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            margin-top: auto;
-        }
+    background: var(--tg-secondary-bg);
+    padding: 15px;
+    flex-shrink: 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    
+    /* ИЗМЕНИТЕ ЭТИ СТРОКИ: */
+    margin-top: 20px;       /* Замените auto на фиксированный отступ */
+    position: relative;     /* Убедитесь, что блок не зафиксирован на экране */
+}
 
         .res-row {
             display: flex;
