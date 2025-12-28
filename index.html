@@ -120,13 +120,11 @@
     padding: 15px;
     border-top: 1px solid rgba(0,0,0,0.1);
     
-    /* Эти настройки принудительно отключают "прилипание" */
+    /* Эти настройки принудительно ставят блок в конец страницы */
     position: relative !important; 
     bottom: auto !important;
-    left: auto !important;
-    width: 100% !important;
     margin-top: 30px !important;
-    display: block !important;
+    width: 100%;
 }
 
         .res-row {
@@ -238,8 +236,6 @@
                 <tr data-name="Екатеринбург"><td class="service-name">Екатеринбург</td><td class="price">1000.00</td><td><input type="number" inputmode="decimal" value="" placeholder="0" oninput="updateTotal()"></td><td class="lineTotal">0.00</td></tr>
             </tbody>
         </table>
-    </div>
-
     <div class="results-footer">
         <div class="res-row">
             <span>Скидка (%): <input type="number" inputmode="decimal" id="discount" value="" placeholder="0" oninput="updateTotal()" style="width: 50px;"></span>
