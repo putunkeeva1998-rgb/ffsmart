@@ -118,12 +118,15 @@
        .results-footer {
     background: var(--tg-secondary-bg);
     padding: 15px;
-    flex-shrink: 0;
     border-top: 1px solid rgba(0,0,0,0.1);
     
-    /* Эти две правки решают вашу проблему: */
-    margin-top: 20px;            /* Делает отступ от таблицы */
-    position: static !important;  /* Закрепляет блок под таблицей, чтобы он не прыгал вверх */
+    /* Эти настройки принудительно отключают "прилипание" */
+    position: relative !important; 
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    margin-top: 30px !important;
+    display: block !important;
 }
 
         .res-row {
