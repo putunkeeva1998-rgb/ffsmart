@@ -347,8 +347,15 @@
             return;
         }
 
-        tg.sendData(message);
-        // Закрытие клавиатуры при нажатии Enter
+        // 1. Отправляем данные боту
+    tg.sendData(message);
+
+    // 2. Добавляем уведомление, чтобы пользователь понял, что расчет ушел
+    tg.showAlert("✅ Ваш расчет успешно отправлен менеджеру!");
+
+    // СТРОКУ tg.close(); СЮДА НЕ ДОБАВЛЯЕМ — тогда приложение останется открытым
+
+    // 3. Код для закрытия клавиатуры (оставляем как есть, он полезен)
     document.querySelectorAll('input').forEach(input => {
       input.addEventListener('keyup', function(event) {
         if (event.key === 'Enter') {
