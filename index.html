@@ -115,15 +115,15 @@
             margin: 0;
         }
 
-        .results-footer {
+       .results-footer {
     background: var(--tg-secondary-bg);
     padding: 15px;
     flex-shrink: 0;
     border-top: 1px solid rgba(0,0,0,0.1);
     
-    /* ИЗМЕНИТЕ ЭТИ СТРОКИ: */
-    margin-top: 20px;       /* Замените auto на фиксированный отступ */
-    position: relative;     /* Убедитесь, что блок не зафиксирован на экране */
+    /* Эти две правки решают вашу проблему: */
+    margin-top: 20px;            /* Делает отступ от таблицы */
+    position: static !important;  /* Закрепляет блок под таблицей, чтобы он не прыгал вверх */
 }
 
         .res-row {
